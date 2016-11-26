@@ -1,15 +1,16 @@
-%H matrisinin üretilmesi
-%H=[H1a,H1b;H2a,H2b;H3a,H3b;H4a,H4b;H5a,H5b]; yapısında olacak.
-H1a=[];%H1a: E ölçümlerinin delta (açı) değerlerine göre türevleri
-H1b=[];%H1b: E ölçümlerinin |V| (gerilim genliği) değerlerine göre türevleri
-H2a=[];%H2a: P ölçümlerinin delta (açı) değerlerine göre türevleri
-H2b=[];%H2b: P ölçümlerinin |V| (gerilim genliği) değerlerine göre türevleri
-H3a=[];%H3a: Q ölçümlerinin delta (açı) değerlerine göre türevleri
-H3b=[];%H3b: Q ölçümlerinin |V| (gerilim genliği) değerlerine göre türevleri
-H4a=[];%H4a: Pij ölçümlerinin delta (açı) değerlerine göre türevleri
-H4b=[];%H4b: Pij ölçümlerinin |V| (gerilim genliği) değerlerine göre türevleri
-H5a=[];%H5a: Qij ölçümlerinin delta (açı) değerlerine göre türevleri
-H5b=[];%H5b: Qij ölçümlerinin |V| (gerilim genliği) değerlerine göre türevleri
+%Ibrahim Gursu Tekdemir, 2016
+%H matrisinin Ã¼retilmesi
+%H=[H1a,H1b;H2a,H2b;H3a,H3b;H4a,H4b;H5a,H5b]; yapÃ½sÃ½nda olacak.
+H1a=[];%H1a: E Ã¶lÃ§Ã¼mlerinin delta (aÃ§Ã½) deÃ°erlerine gÃ¶re tÃ¼revleri
+H1b=[];%H1b: E Ã¶lÃ§Ã¼mlerinin |V| (gerilim genliÃ°i) deÃ°erlerine gÃ¶re tÃ¼revleri
+H2a=[];%H2a: P Ã¶lÃ§Ã¼mlerinin delta (aÃ§Ã½) deÃ°erlerine gÃ¶re tÃ¼revleri
+H2b=[];%H2b: P Ã¶lÃ§Ã¼mlerinin |V| (gerilim genliÃ°i) deÃ°erlerine gÃ¶re tÃ¼revleri
+H3a=[];%H3a: Q Ã¶lÃ§Ã¼mlerinin delta (aÃ§Ã½) deÃ°erlerine gÃ¶re tÃ¼revleri
+H3b=[];%H3b: Q Ã¶lÃ§Ã¼mlerinin |V| (gerilim genliÃ°i) deÃ°erlerine gÃ¶re tÃ¼revleri
+H4a=[];%H4a: Pij Ã¶lÃ§Ã¼mlerinin delta (aÃ§Ã½) deÃ°erlerine gÃ¶re tÃ¼revleri
+H4b=[];%H4b: Pij Ã¶lÃ§Ã¼mlerinin |V| (gerilim genliÃ°i) deÃ°erlerine gÃ¶re tÃ¼revleri
+H5a=[];%H5a: Qij Ã¶lÃ§Ã¼mlerinin delta (aÃ§Ã½) deÃ°erlerine gÃ¶re tÃ¼revleri
+H5b=[];%H5b: Qij Ã¶lÃ§Ã¼mlerinin |V| (gerilim genliÃ°i) deÃ°erlerine gÃ¶re tÃ¼revleri
 
 zsay=0;
 zif=[];
@@ -228,4 +229,3 @@ for p=1:size(Qij,1)
 end
 
 H=[H1a,H1b;H2a,H2b;H3a,H3b;H4a,H4b;H5a,H5b];
-%Ibrahim Gursu Tekdemir, 2016
