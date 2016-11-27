@@ -1,59 +1,59 @@
 function [Vgenlik,Vacid,dene]=dnm210b(skonum,yontem)
 %function [Vgenlik,Vacid,dene]=dnm210b(skonum,yontem)
 %
-%Vgenlik: Durum kestirimi sonrasında elde edilen gerilim genlik değeri (pu)
-%Vaci: Durum kestirimi sonrasında elde edilen gerilim açı değeri (radyan)
+%Vgenlik: Durum kestirimi sonrasÄ±nda elde edilen gerilim genlik deÄŸeri (pu)
+%Vaci: Durum kestirimi sonrasÄ±nda elde edilen gerilim aÃ§Ä± deÄŸeri (radyan)
 %
-%skonum: Aşağıdaki ölçüm değerlerinin kaydedildiği .mat dosyasının konumu
-%konum: Değerleri okunacak olan sistemin txt dosyasının konumu
+%skonum: AÅŸaÄŸÄ±daki Ã¶lÃ§Ã¼m deÄŸerlerinin kaydedildiÄŸi .mat dosyasÄ±nÄ±n konumu
+%konum: DeÄŸerleri okunacak olan sistemin txt dosyasÄ±nÄ±n konumu
 %('sistem_elm.txt' gibi)
-%E: Kestirim öncesi bilinen gerilim genlik ölçümü değerleri (pu)
-%P: Kestirim öncesi bilinen bara aktif güç ölçümü değerleri (pu)
-%Q: Kestirim öncesi bilinen bara reaktif güç ölçümü değerleri (pu)
-%Pij: Kestirim öncesi bilinen hat aktif güç akışı ölçümü değerleri (pu)
-%Qij: Kestirim öncesi bilinen hat reaktif güç akışı ölçümü değerleri (pu)
-%Rx: Sırasıyla E, P, Q, Pij, Qij ölçümlerini yapan cihazların standart sapma
-%değerleri (Rx=[0.01,0.02,0.001]; %3 ölçüm için örnek bir Rx vektörü)
+%E: Kestirim Ã¶ncesi bilinen gerilim genlik Ã¶lÃ§Ã¼mÃ¼ deÄŸerleri (pu)
+%P: Kestirim Ã¶ncesi bilinen bara aktif gÃ¼Ã§ Ã¶lÃ§Ã¼mÃ¼ deÄŸerleri (pu)
+%Q: Kestirim Ã¶ncesi bilinen bara reaktif gÃ¼Ã§ Ã¶lÃ§Ã¼mÃ¼ deÄŸerleri (pu)
+%Pij: Kestirim Ã¶ncesi bilinen hat aktif gÃ¼Ã§ akÄ±ÅŸÄ± Ã¶lÃ§Ã¼mÃ¼ deÄŸerleri (pu)
+%Qij: Kestirim Ã¶ncesi bilinen hat reaktif gÃ¼Ã§ akÄ±ÅŸÄ± Ã¶lÃ§Ã¼mÃ¼ deÄŸerleri (pu)
+%Rx: SÄ±rasÄ±yla E, P, Q, Pij, Qij Ã¶lÃ§Ã¼mlerini yapan cihazlarÄ±n standart sapma
+%deÄŸerleri (Rx=[0.01,0.02,0.001]; %3 Ã¶lÃ§Ã¼m iÃ§in Ã¶rnek bir Rx vektÃ¶rÃ¼)
 %
-%ör1: E=[1 1;1.02 3]; %1. baranın ve 3. baranın gerilim genliği ölçümleri sırasıyla 1pu ve 1.02 pu değerindedir.
+%Ã¶r1: E=[1 1;1.02 3]; %1. baranÄ±n ve 3. baranÄ±n gerilim genliÄŸi Ã¶lÃ§Ã¼mleri sÄ±rasÄ±yla 1pu ve 1.02 pu deÄŸerindedir.
 %
-%ör2: P=[2.4 4;-3.2 5]; %4. baranın aktif güç ölçümü 2.4pu, 5. baranın
-%aktif güç ölçümü -3.2pu değerindedir. (Q değişkeni de aynı yapıdadır.)
+%Ã¶r2: P=[2.4 4;-3.2 5]; %4. baranÄ±n aktif gÃ¼Ã§ Ã¶lÃ§Ã¼mÃ¼ 2.4pu, 5. baranÄ±n
+%aktif gÃ¼Ã§ Ã¶lÃ§Ã¼mÃ¼ -3.2pu deÄŸerindedir. (Q deÄŸiÅŸkeni de aynÄ± yapÄ±dadÄ±r.)
 %
-%ör3: Pij=[1.2 1 5;-1.1 5 1]; %1. baradan 5. baraya aktif güç ölçümü 1.2pu,
-%5. baradan 1. baraya aktif güç ölçümü -1.1pu değerindedir. (Qij değişkeni de aynı yapıdadır.)
+%Ã¶r3: Pij=[1.2 1 5;-1.1 5 1]; %1. baradan 5. baraya aktif gÃ¼Ã§ Ã¶lÃ§Ã¼mÃ¼ 1.2pu,
+%5. baradan 1. baraya aktif gÃ¼Ã§ Ã¶lÃ§Ã¼mÃ¼ -1.1pu deÄŸerindedir. (Qij deÄŸiÅŸkeni de aynÄ± yapÄ±dadÄ±r.)
 %
-%Ibrahim Gursu Tekdemir, 2016
+%Ä°brahim GÃ¼rsu Tekdemir, 2016
 
 load(skonum);
 
-%Yakınsama çözünürlüğü
+%YakÄ±nsama Ã§Ã¶zÃ¼nÃ¼rlÃ¼ÄŸÃ¼
 hata=0.001;
 
-%dx hesabına ilişkin yöntem seçimi
+%dx hesabÄ±na iliÅŸkin yÃ¶ntem seÃ§imi
 %yontem=1;
 
-%Ybara matrisi, uygun txt dosyasından okunarak üretilecek.
+%Ybara matrisi, uygun txt dosyasÄ±ndan okunarak Ã¼retilecek.
 [Ybara,ypq2]=dosya_oku3(konum);
 Bkacak=abs(ypq2)*2;
 
-%G,B ve teta'ların Ybara'ya göre hesaplanması
+%G,B ve teta'larÄ±n Ybara'ya gÃ¶re hesaplanmasÄ±
 G=real(Ybara);
 B=imag(Ybara);
 teta=atan2(B,G);
 
-%Bara sayısı
+%Bara sayÄ±sÄ±
 N=length(Ybara);
 
-%Toplam ölçüm sayısı
+%Toplam Ã¶lÃ§Ã¼m sayÄ±sÄ±
 Nm=size(E,1)+size(P,1)+size(Q,1)+size(Pij,1)+size(Qij,1);
 
-%R matrisinin üretilmesi
+%R matrisinin Ã¼retilmesi
 for p=1:Nm
     R(p,p)=1/((Rx(p))^2);
 end
 
-%Durumlar için başlangıç değerlerinin üretilmesi (initialization of states)
+%Durumlar iÃ§in baÅŸlangÄ±Ã§ deÄŸerlerinin Ã¼retilmesi (initialization of states)
 for p=1:N
     delta1(p)=0;
     V1(p)=1;
@@ -62,7 +62,7 @@ end
 dene=1;
 dongu=1;
 while dongu==1
-    %H matrisinde kullanılacak değerlerin elde edilmesi
+    %H matrisinde kullanÄ±lacak deÄŸerlerin elde edilmesi
     delta(1)=0;
     for n=2:N
         delta(n)=delta1(dene,n);        
@@ -71,10 +71,10 @@ while dongu==1
         V(n)=V1(dene,n);
     end
     
-    %H matrisinin hesaplanması
+    %H matrisinin hesaplanmasÄ±
     dnm210Hmatris;
         
-    %dx vektörünün elde edilmesi
+    %dx vektÃ¶rÃ¼nÃ¼n elde edilmesi
     if yontem==1
         Ga=H'*(R\H);
         dx=Ga\(H'*(R\zif));
