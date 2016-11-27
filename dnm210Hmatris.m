@@ -1,4 +1,4 @@
-%Ibrahim Gursu Tekdemir, 2016
+%İbrahim Gürsu Tekdemir, 2016
 %H matrisinin üretilmesi
 %H=[H1a,H1b;H2a,H2b;H3a,H3b;H4a,H4b;H5a,H5b]; yapýsýnda olacak.
 H1a=[];%H1a: E ölçümlerinin delta (açý) deðerlerine göre türevleri
