@@ -5,7 +5,9 @@ function m2pca_cizim(R,G,B,kesme)
 %G: Principle Component - 2 (PC2)
 %B: Principle Component - 3 (PC3)
 %
-%kesme: number of rows (number of columns will be determined by the function according to 'kesme' and the length of data)
+%kesme: number of rows (number of columns will be determined by the function according to "kesme" and the length of data)
+%
+%output of the function is "PCA_cizim.html" file which contains the graphic
 
 uzunluk=length(R);
 
@@ -57,26 +59,5 @@ fprintf(dosya,'</body>\n');
 fprintf(dosya,'</html>\n');
 
 fclose(dosya);
-
-%Daire
-%fprintf(dosya,'	ctx.beginPath();\n');
-%fprintf(dosya,'	ctx.fillStyle="rgb(255,155,100)";\n');
-%fprintf(dosya,'	ctx.arc(140,80,25,0,2*Math.PI,true);\n');
-%fprintf(dosya,'	ctx.fill();\n');
-%fprintf(dosya,'	ctx.closePath();\n');
-
-%Daire
-%fprintf(dosya,'	ctx.beginPath();\n');
-%fprintf(dosya,'	ctx.fillStyle="rgb(255,155,100)";\n');
-%fprintf(dosya,'	ctx.arc(80,140,25,0,2*Math.PI,true);\n');
-%fprintf(dosya,'	ctx.fill();\n');
-%fprintf(dosya,'	ctx.closePath();\n');
-
-%Daire
-%fprintf(dosya,'	ctx.beginPath();\n');
-%fprintf(dosya,'	ctx.fillStyle="rgb(255,155,100)";\n');
-%fprintf(dosya,'	ctx.arc(140,140,25,0,2*Math.PI,true);\n');
-%fprintf(dosya,'	ctx.fill();\n');
-%fprintf(dosya,'	ctx.closePath();\n');
 
 end
