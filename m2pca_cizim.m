@@ -1,4 +1,11 @@
 function m2pca_cizim(R,G,B,kesme)
+%function m2pca_cizim(R,G,B,kesme)
+%
+%R: Principle Component - 1 (PC1)
+%G: Principle Component - 2 (PC2)
+%B: Principle Component - 3 (PC3)
+%
+%kesme: number of rows (number of columns will be determined by the function according to 'kesme' and the length of data)
 
 uzunluk=length(R);
 
@@ -18,7 +25,7 @@ B=round(255*(B-Bbaz)/Bgen);
 
 fprintf(dosya,'<html>\n');
 fprintf(dosya,'<head>\n');
-fprintf(dosya,'<title>PCA Çizim</title>\n');
+fprintf(dosya,'<title>PCA Ã‡izim</title>\n');
 fprintf(dosya,'<script>\n');
 fprintf(dosya,'function basla()\n');
 fprintf(dosya,'{\n');
