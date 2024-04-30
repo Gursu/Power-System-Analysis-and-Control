@@ -9,7 +9,11 @@ Electrical power system analysis and control tools for MATLAB / GNU Octave
 
 `dosya_oku3.m`: The function which generates bus admittance (Ybara) and line-charging susceptance (ypq2) matrices according to the location of power system data file (konum)
 
+`guc1.m`: MATLAB function which gets active power (P) and terminal voltage (V) of the generator connected to Bus-2 as inputs (x, y) and returns total active power loss of IEEE 14 bus test system as the output (kay). It is calculated by running power flow analysis.
+
 `gucaks.m`: Power flow program (location of power system data file must be defined (e.g. konum='IEEE14bara.txt';) and dosya_oku2.m must be run before execution.)
+
+`gucaksIEEE14.m`: Power flow program which is dedicated to solution of IEEE 14 bus test system.
 
 `IEEE14bara.txt`: IEEE 14 bus test system bus and line data as an example (to be used in power flow and state estimation procedures)
 
