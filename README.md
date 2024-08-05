@@ -22,3 +22,5 @@ Electrical power system analysis and control tools for MATLAB / GNU Octave
 `m2pca_cizim.m`: An HTML/canvas graphic tool for Principle Component Analysis (PCA) results. First 3 principle components are to be transformed to RGB (red-green-blue) equivalent values and represented by uniquely colored circles. If PCA is applied to a time series data, it would also be meaningful to see the newly colored circles in chronological order as the output of the code.
 
 `fazorel7.m`: Function for creating phasor of electrical voltage or current in a power system by using Discrete Fourier Transform (DFT). It is possible to create any harmonic component with its amplitude and angle.
+
+`filtre3.m`: Function for creating electrical voltage or current waveforms in a power system by using Discrete Fourier Transform (DFT). It is possible to create any harmonic component with respect to time.
